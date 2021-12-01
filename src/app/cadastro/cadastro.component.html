@@ -1,0 +1,64 @@
+<div class="container-fluid">
+  <div class="row align-items-center">
+    <div class="col-md-6" id="img-bg"></div>
+    <div class="col-md-6 mt-5 mb-5">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-6">
+          <h1 class="text-center mb-3">Cadastro</h1>
+          <div class="form-group">
+            <label for="nome">Nome</label>
+            <input
+              class="form-control"
+              type="text"
+              name="nome"
+              id="nome"
+              placeholder="Digite seu nome completo"
+            />
+            <label for="usuario">Usuário</label>
+            <input
+              class="form-control"
+              type="text"
+              name="usuario"
+              id="usuario"
+              placeholder="Digite seu usuário"
+            />
+            <label for="linkFoto">Link da Foto</label>
+            <input
+              class="form-control"
+              type="text"
+              name="linkFoto"
+              id="linkFoto"
+              placeholder="Digite o link da sua foto"
+            />
+            <label for="senha">Senha</label>
+            <input
+              class="form-control"
+              type="password"
+              name="senha"
+              id="senha"
+              placeholder="Digite sua senha"
+            />
+            <label for="confirmSenha">Confirmar Senha</label>
+            <input
+              class="form-control"
+              type="password"
+              name="confirmSenha"
+              id="confirmSenha"
+              placeholder="Digite novamente sua senha"
+            />
+            <label for="tipoUsuario">Tipo de Usuário</label>
+           <select name="tipoUsuario" id="tipoUsuario" class="form-control">
+               <option>Selecione um tipo de usuário:</option>
+               <option value="normal">Normal</option>
+               <option value="administrador">Administrador</option>
+           </select>
+          </div>
+          <div class="d-flex justify-content-center ">
+              <button type="submit" class="btn btn-danger mr-4">Cancelar</button>
+            <button type="submit" class="btn btn-info">Cadastrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
