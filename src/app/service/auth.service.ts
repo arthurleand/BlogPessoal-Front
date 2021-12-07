@@ -5,19 +5,21 @@ import { Usuario } from '../model/Usuario';
 import { UsuarioLogin } from '../model/UsuarioLogin';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
+  constructor(private http: HttpClient) {}
 
-  constructor( 
-    private http: HttpClient
-    ) { }
-   
- 
-    entrar(usuarioLogin: UsuarioLogin): Observable<UsuarioLogin>{
-    return this.http.post<UsuarioLogin>('http://localhost:8080/usarios/logar', usuarioLogin)
+  logar(usuarioLogin: UsuarioLogin): Observable<UsuarioLogin> {
+    return this.http.post<UsuarioLogin>(
+      'http://localhost:8080/usuarios/logar',
+      usuarioLogin
+    );
   }
-  cadastrar(usuario: Usuario): Observable<Usuario>{
-    return this.http.post<Usuario>('http://localhost:8080/usarios/cadastrar', usuario)
+  cadastrar(usuario: Usuario): Observable<Usuario> {
+    return this.http.post<Usuario>(
+      'http://localhost:8080/usuarios/cadastrar',
+      usuario
+    );
   }
 }

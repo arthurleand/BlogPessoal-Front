@@ -8,6 +8,7 @@
           <div class="form-group">
             <label for="nome">Nome</label>
             <input
+              [(ngModel)]="usuario.nome"
               class="form-control"
               type="text"
               name="nome"
@@ -16,6 +17,7 @@
             />
             <label for="usuario">Usuário</label>
             <input
+              [(ngModel)]="usuario.usuario"
               class="form-control"
               type="text"
               name="usuario"
@@ -24,6 +26,7 @@
             />
             <label for="linkFoto">Link da Foto</label>
             <input
+              [(ngModel)]="usuario.foto"
               class="form-control"
               type="text"
               name="linkFoto"
@@ -32,6 +35,7 @@
             />
             <label for="senha">Senha</label>
             <input
+              (input)="confirmeSenha($event)"
               class="form-control"
               type="password"
               name="senha"
@@ -40,6 +44,7 @@
             />
             <label for="confirmSenha">Confirmar Senha</label>
             <input
+              [(ngModel)]="usuario.senha"
               class="form-control"
               type="password"
               name="confirmSenha"
@@ -47,15 +52,21 @@
               placeholder="Digite novamente sua senha"
             />
             <label for="tipoUsuario">Tipo de Usuário</label>
-           <select name="tipoUsuario" id="tipoUsuario" class="form-control">
-               <option>Selecione um tipo de usuário:</option>
-               <option value="normal">Normal</option>
-               <option value="administrador">Administrador</option>
-           </select>
+            <select name="tipoUsuario" id="tipoUsuario" class="form-control" (change)="tipoUsuario($event)">
+              <option>Selecione um tipo de usuário:</option>
+              <option value="normal">Normal</option>
+              <option value="administrador">Administrador</option>
+            </select>
           </div>
-          <div class="d-flex justify-content-center ">
-              <button type="submit" class="btn btn-danger mr-4" routerLink='/login'>Cancelar</button>
-            <button type="submit" class="btn btn-info">Cadastrar</button>
+          <div class="d-flex justify-content-center">
+            <button
+              type="submit"
+              class="btn btn-danger mr-4"
+              routerLink="/login"
+            >
+              Cancelar
+            </button>
+            <button type="submit" class="btn btn-info" (click)="cadastrar()">Cadastrar</button>
           </div>
         </div>
       </div>

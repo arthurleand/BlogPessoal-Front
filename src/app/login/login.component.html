@@ -7,6 +7,7 @@
           <div class="form-group">
             <label for="usuario">Usuário</label>
             <input
+              [(ngModel)]='usuarioLogin.usuario'
               class="form-control"
               type="text"
               name="usuario"
@@ -15,6 +16,7 @@
             />
             <label for="senha">Senha</label>
             <input
+              [(ngModel)]='usuarioLogin.senha'
               class="form-control"
               type="password"
               name="senha"
@@ -23,7 +25,7 @@
             />
           </div>
           <div class="d-flex justify-content-center">
-            <button type="submit" class="btn btn-info">Entrar</button>
+            <button type="submit" class="btn btn-info" (click)='entrar()' >Entrar</button>
           </div>
           <hr class="mt-5 mb-5" />
           <p class="text-center">
