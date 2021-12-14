@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
@@ -9,8 +9,17 @@ import { UsuarioLogin } from '../model/UsuarioLogin';
   providedIn: 'root',
 })
 export class AuthService {
+ 
+  token={
+    headers: new HttpHeaders().set('Authorization',environment.token)
+  }
+  refreshToken(){
+    this.token = {
+      headers: new HttpHeaders().set('Authorization', environment.token)
+    }
+  }
   constructor(private http: HttpClient) {}
-
+  
   logar(usuarioLogin: UsuarioLogin): Observable<UsuarioLogin> {
     return this.http.post<UsuarioLogin>(
       'http://localhost:8080/usuarios/logar',
@@ -23,6 +32,11 @@ export class AuthService {
       usuario
     );
   }
+
+  getByIdUsuario(id: number): Observable<Usuario>{
+    return this.http.get<Usuario>(`http://localhost:8080/usuarios/${id}`,this.token)
+  }
+
   logado(){
     let ok: boolean = false
     if(environment.token != ''){
